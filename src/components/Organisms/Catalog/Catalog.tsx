@@ -2,7 +2,7 @@
 
 import Header from "../Header/Header";
 import GameList, { DataGame } from "../GameList/GameList";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchGames } from "@/services/fetchGames";
 import Button from "@/components/Atoms/Button/Button";
 import Loader from "@/components/Atoms/Loader/Loader";
