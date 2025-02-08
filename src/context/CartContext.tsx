@@ -3,9 +3,15 @@ import {
   getFromLocalStorage,
   removeItemFromLocalStorage,
 } from "@/utils/localStorageUtils";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
-export const CartContext = createContext({
+interface CartContextType {
+  cart: string[];
+  removeFromCart: (id: string) => void;
+  removeAllFromCart: () => void;
+}
+
+export const CartContext = createContext<CartContextType>({
   cart: [],
   removeFromCart: (id: string) => {},
   removeAllFromCart: () => {},
@@ -18,9 +24,14 @@ interface CartProviderProps {
 }
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState(() => {
-    return getFromLocalStorage("cart") || [];
-  });
+  const [cart, setCart] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedCart = getFromLocalStorage("cart") || [];
+      setCart(storedCart);
+    }
+  }, []);
 
   const removeFromCart = (id: string) => {
     removeItemFromLocalStorage("cart", id);

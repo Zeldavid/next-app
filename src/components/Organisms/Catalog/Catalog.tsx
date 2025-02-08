@@ -8,7 +8,6 @@ import Button from "@/components/Atoms/Button/Button";
 import Loader from "@/components/Atoms/Loader/Loader";
 
 const Catalog = () => {
-  console.log("render Catalog");
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<DataGame>({
     games: [],
@@ -27,7 +26,9 @@ const Catalog = () => {
   };
 
   useEffect(() => {
-    getItems();
+    if (typeof window !== "undefined") {
+      getItems();
+    }
   }, []);
 
   useEffect(() => {
