@@ -26,5 +26,15 @@ export async function GET(request: Request) {
   const totalPages = Math.ceil(allGames.length / ITEMS_PER_PAGE);
   const currentPage = page;
 
-  return Response.json({ games, availableFilters, totalPages, currentPage });
+  // return Response.json({ games, availableFilters, totalPages, currentPage });
+  return new Response(
+    JSON.stringify({ games, availableFilters, totalPages, currentPage }),
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+      },
+    }
+  );
 }

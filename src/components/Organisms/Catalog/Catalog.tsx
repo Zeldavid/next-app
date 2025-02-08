@@ -57,9 +57,11 @@ const Catalog = () => {
   return (
     <>
       <Header data={data} onChange={handleChange}></Header>
-      <div className="flex flex-wrap justify-start py-12 px-32 max-sm:py-8 max-sm:px-6 gap-12">
-        <GameList data={data} />
-        <div className="w-[137px]">
+      <div className="flex flex-col justify-start py-12 px-32 max-sm:py-8 max-sm:px-6">
+        <div className="flex flex-wrap gap-12">
+          <GameList data={data} />
+        </div>
+        <div className="max-sm:w-full w-[137px] mt-4">
           <Button
             textContent="Show more"
             buttonType="secondary"

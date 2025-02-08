@@ -35,7 +35,7 @@ const Card = ({ data }: GameProps) => {
   };
 
   return (
-    <div className="flex flex-col justify-between w-[380px] h-auto border-[0.5px] border-colorStroke rounded-2xl p-6 gap-y-5 font-archivo">
+    <div className="flex flex-col justify-between w-[360px] h-auto border-[0.5px] border-colorStroke rounded-2xl p-6 gap-y-5 font-archivo">
       <Image
         src={image}
         alt={name}
