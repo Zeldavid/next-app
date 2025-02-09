@@ -32,10 +32,9 @@ export async function GET(request: Request) {
     {
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin":
-          "https://next-59o3z3z6j-davids-projects-9b849ce3.vercel.app",
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
     }
   );
